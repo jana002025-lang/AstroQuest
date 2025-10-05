@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASTROQUEST: Full Flow & Multi-Path Game</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles1.css">
+</head>
+<body>
+
+    <div class="background-animated"></div>
+
+    <div id="screen-1" class="screen active">
+        <header style="width: 100%; position: absolute; top: 0; padding: 20px 40px; box-sizing: border-box;">
+            <span class="logo-text" style="font-size: 1.2em; float: left;">ASTROQUEST</span>
+            <nav style="float: right;">
+                <a href="#" class="nav-link" onclick="goToScreen(5); showResourcePage(1)">STUDY RESOURCE</a>
+                <a href="#" class="nav-link">MISSIONS</a>
+                <a href="#" class="nav-link">PROFILE</a>
+            </nav>
+        </header>
+        <div style="text-align: left; width: 80%; max-width: 900px; margin-top: 10vh;">
+            <p class="text-neon-cyan" style="font-family: var(--font-main);">ASTROQUEST</p>
+            <h2>STEP <span class="text-neon-purple">INTO</span> ASTRONAUT'S <span class="text-neon-cyan">WORLD</span></h2>
+            <div style="height: 5px; width: 150px; background-color: var(--primary-neon); margin-bottom: 20px; box-shadow: 0 0 10px var(--primary-neon);"></div>
+            <button class="cta-button" onclick="goToScreen(2)">EXPLORE</button>
+        </div>
+    </div>
+
+    <div id="screen-2" class="screen">
+        <div class="content-box">
+            <h2 class="logo-text">ABOUT THE GAME</h2>
+            <p>Welcome to your mission aboard the International Space Station! In this game, you'll take specialized questions about the <span class="text-neon-cyan">Clue Cells</span> and the <span class="text-neon-purple">Neutral Buoyancy Laboratory (NBL)</span>. Each correct answer unlocks a <span class="text-neon-cyan">puzzle piece</span> - and piece by piece, you'll build the complete scientist image. Are you ready to begin the adventure?</p>
+            <div class="nav-buttons">
+                <button class="cta-button" style="border: none; background: rgba(255, 255, 255, 0.1); box-shadow: none;" onclick="goToScreen(3)">SKIP</button>
+                <button class="cta-button" onclick="goToScreen(3)">NEXT</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="screen-3" class="screen">
+        <h1 class="logo-text">ASTROQUEST</h1>
+        <div>
+            <button class="cta-button" onclick="goToScreen(4)">PROCEED</button>
+            <a href="#" class="nav-link">AWARDS</a>
+        </div>
+    </div>
+
+    <div id="screen-4" class="screen">
+        <div class="center-content">
+            <h1 class="logo-text">ASTROQ...<span class="text-neon-cyan">SELECT MISSION</span></h1>
+            <p style="color: var(--text-subtle); margin-bottom: 30px;">Choose your cosmic challenge.</p>
+            <button class="cta-button" onclick="goToScreen(5); showResourcePage(1)">STUDY RESOURCES</button>
+            <button class="cta-button" style="border-color: var(--primary-neon); box-shadow: 0 0 10px var(--primary-neon);" onclick="goToScreen(1)">BACK</button>
+        </div>
+    </div>
+
+    <div id="screen-5" class="screen">
+        <div class="resource-container">
+            <h1 class="logo-text" style="font-size: 2.5em; text-align: left; margin-bottom: 40px; text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);">STUDY RESOURCE</h1>
+            
+            <div id="resource-pages">
+                
+                <div class="resource-page-slide active" id="resource-page-1">
+                    <div class="accordion-grid">
+                        <div class="accordion-item"><div class="accordion-question" onclick="toggleAccordion(this)"><span>Question Set 1: Orbital Mechanics Basics?</span></div><div class="accordion-answer"><p>Answer: This section covers the basics of orbital velocity, trajectory, and Earth's gravitational pull on the ISS.</p></div></div>
+                        <div class="accordion-item"><div class="accordion-question" onclick="toggleAccordion(this)"><span>What is the primary function of the ISS?</span></div><div class="accordion-answer"><p>Answer: The ISS serves as a microgravity and space environment research laboratory, focusing on biology and physics.</p></div></div>
+                        <div class="accordion-item"><div class="accordion-question" onclick="toggleAccordion(this)"><span>How long is the ISS, and how fast does it travel?</span></div><div class="accordion-answer"><p>Answer: It's about the size of a football field (109m) and travels at 28,000 km/h, orbiting every 90 minutes.</p></div></div>
+                        <div class="accordion-item"><div class="accordion-question" onclick="toggleAccordion(this)"><span>Important mission data was recorded in the last 500 years?</span></div><div class="accordion-answer"><p>Answer: Focus on Apollo, Mercury, Gemini, and recent Mars missions (Curiosity, Perseverance).</p></div></div>
+                    </div>
+                </div>
+
+                <div class="resource-page-slide" id="resource-page-2">
+                    <div class="accordion-grid">
+                        <div class="accordion-item"><div class="accordion-question" onclick="toggleAccordion(this)"><span>Question Set 2: Deep Space Objects?</span></div><div class="accordion-answer"><p>Answer: Understand the difference between nebulae, galaxies, black holes, and dark matter/energy concepts.</p></div></div>
+                        <div class="accordion-item"><div class="accordion-question" onclick="toggleAccordion(this)"><span>What is the 'Kármán Line' and its significance?</span></div><div class="accordion-answer"><p>Answer: 100 km (62 miles) above sea level, defining the boundary between Earth's atmosphere and outer space.</p></div></div>
+                        <div class="accordion-item"><div class="accordion-question" onclick="toggleAccordion(this)"><span>How can fluid physics be effectively tested in space?</span></div><div class="accordion-answer"><p>Answer: In microgravity, surface tension and capillary action dominate, allowing for unique experiments on fluid dynamics.</p></div></div>
+                        <div class="accordion-item"><div class="accordion-question" onclick="toggleAccordion(this)"><span>What results did the Curiosity rover prove on Mars?</span></div><div class="accordion-answer"><p>Answer: Confirmed that Mars once had conditions capable of supporting microbial life, with evidence of past water.</p></div></div>
+                    </div>
+                </div>
+
+                <div class="resource-page-slide" id="resource-page-3">
+                    <div class="accordion-grid">
+                        <div class="accordion-item"><div class="accordion-question" onclick="toggleAccordion(this)"><span>Question Set 3: Space Telescope History?</span></div><div class="accordion-answer"><p>Answer: Review the roles of Hubble, Kepler, James Webb (JWST), and Spitzer in astronomical observation.</p></div></div>
+                        <div class="accordion-item"><div class="accordion-question" onclick="toggleAccordion(this)"><span>What kind of materials are used in spacesuit gloves?</span></div><div class="accordion-answer"><p>Answer: Multiple layers of synthetic materials (Kevlar, Dacron, Neoprene) for thermal protection and micrometeoroid resistance.</p></div></div>
+                        <div class="accordion-item"><div class="accordion-question" onclick="toggleAccordion(this)"><span>Why is the Cupola important to the ISS?</span></div><div class="accordion-answer"><p>Answer: Provides a 360-degree view for observing Earth, monitoring external systems, and docking operations.</p></div></div>
+                        <div class="accordion-item"><div class="accordion-question" onclick="toggleAccordion(this)"><span>What is NBL, and how does it simulate space?</span></div><div class="accordion-answer"><p>Answer: The Neutral Buoyancy Laboratory is a large indoor pool used to train astronauts for spacewalks (EVAs) using neutral buoyancy to simulate weightlessness.</p></div></div>
+                    </div>
+                </div>
+
+                <div class="resource-page-slide" id="resource-page-4">
+                    <div class="accordion-grid">
+                        <div class="accordion-item"><div class="accordion-question" onclick="toggleAccordion(this)"><span>Question Set 4: Human Physiology in Space?</span></div><div class="accordion-answer"><p>Answer: Learn about bone density loss, muscle atrophy, space radiation effects, and countermeasures (exercise, diet).</p></div></div>
+                        <div class="accordion-item"><div class="accordion-question" onclick="toggleAccordion(this)"><span>What are the key dangers of Long Duration Spaceflight?</span></div><div class="accordion-answer"><p>Answer: Includes galactic cosmic rays, solar energetic particles, psychological stress, and long-term biological changes.</p></div></div>
+                        <div class="accordion-item"><div class="accordion-question" onclick="toggleAccordion(this)"><span>How does the ISS generate and recycle water?</span></div><div class="accordion-answer"><p>Answer: Uses the Water Recovery System (WRS) to recycle humidity condensate, urine, and wastewater back into potable water.</p></div></div>
+                        <div class="accordion-item"><div class="accordion-question" onclick="toggleAccordion(this)"><span>What is an adaptation specifically for the Loxley system?</span></div><div class="accordion-answer"><p>Answer: Focus on the Loxley system's role in advanced life support or atmospheric control within the ISS modules.</p></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resource-nav-footer">
+                <button class="cta-button nav-button hidden" id="prev-page-button" onclick="changeResourcePage(-1)">PREV PAGE</button>
+                <button class="cta-button nav-button" id="next-page-button" onclick="changeResourcePage(1)">NEXT PAGE</button>
+                <button class="cta-button nav-button hidden" id="start-playing-button" onclick="goToScreen(6)">START PLAYING</button>
+            </div>
+        </div>
+    </div>
+
+<div id="screen-6" class="screen">
+  <h1 class="logo-text">SELECT DECRYPTION PATH</h1>
+  <p style="color: var(--text-subtle);">Choose the location of your Clue Cells to begin the quiz.</p>
+  
+  <div class="path-container">
+
+    <!-- ✅ الكارت الأول (NBL CLUES) -->
+    <div class="path-card">
+      <h3>NBL CLUES</h3>
+      <p>Focus on spacewalk training and systems maintenance. Uncover the identity of an <b>EVA Specialist</b>.</p>
+      <a href="nbl.html">
+        <button class="cta-button select-btn">START NBL MISSION</button>
+      </a>
+    </div>
+
+    <!-- 🌌 الكارت اليمين (CUPOLA CLUES) -->
+<div class="path-card">
+  <h3>CUPOLA CLUES</h3>
+  <p>Investigate observation systems and station monitoring. Reveal the identity of a 
+     <b>Flight Engineer - Cupola Specialist</b>.</p>
+  <a href="cupola.html">
+    <button class="cta-button select-btn">START CUPOLA MISSION</button>
+  </a>
+</div>
+
+
+  </div>
+
+  <button class="cta-button" style="margin-top: 50px; border-color: var(--primary-neon); background: none;"
+          onclick="goToScreen(5); showResourcePage(resourcePageCount)">
+    BACK TO STUDY RESOURCES
+  </button>
+</div>
+
+
+
+            <div class="path-card" onclick="goToScreen(7); startGame('NBL', 'nbl_scientist_image.jpg', 'EVA Specialist - NBL Trainee')">
+                <h3>NBL CLUES</h3>
+                <p>Focus on spacewalk training and systems maintenance. Uncover the identity of an **EVA Specialist**.</p>
+                <button class="cta-button select-btn">START NBL MISSION</button>
+            </div>
+            
+        </div>
+        <button class="cta-button" style="margin-top: 50px; border-color: var(--primary-neon); background: none;" onclick="goToScreen(5); showResourcePage(resourcePageCount)">Back to Study Resources</button>
+    </div>
+
+   
+
+
+
+    <script src="scripts1.js"></script>
+</body>
+</html>

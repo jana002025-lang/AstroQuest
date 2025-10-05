@@ -1,0 +1,177 @@
+/*
+========================================
+1. ROOT VARIABLES & GLOBAL STYLES
+========================================
+*/
+:root {
+    --bg-dark: #0A0413; 
+    --primary-neon: #9400FF; /* Purple */
+    --secondary-neon: #00FFFF; /* Cyan */
+    --text-light: #FFFFFF;
+    --text-subtle: #BBBBBB;
+    --font-main: 'Orbitron', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+    --correct-color: #00FF7F; /* Bright Green */
+    --incorrect-color: #FF4500; /* Orange Red */
+}
+
+/* Global Reset and Base Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-body);
+    /* الخلفية الرئيسية والشبكة المتحركة (Cyber-Grid) */
+    background-color: var(--bg-dark); 
+    color: var(--text-light);
+    overflow-x: hidden;
+    
+    /* إنشاء نمط شبكة النيون باستخدام التدريجات الخطية المتكررة */
+    background-image: repeating-linear-gradient(0deg, rgba(0,0,0,0) 0, rgba(0,0,0,0) 1px, rgba(0, 255, 255, 0.05) 1px, rgba(0, 255, 255, 0.05) 2px),
+                      repeating-linear-gradient(90deg, rgba(0,0,0,0) 0, rgba(0,0,0,0) 1px, rgba(148, 0, 255, 0.1) 1px, rgba(148, 0, 255, 0.1) 2px);
+    background-size: 50px 50px;
+    animation: moveGrid 40s linear infinite; /* تفعيل حركة الشبكة */
+}
+
+/* تعريف الحركة: تحريك الشبكة ببطء لإعطاء تأثير ديناميكي مستمر */
+@keyframes moveGrid {
+    0% { background-position: 0 0; }
+    100% { background-position: 5000px 0; }
+}
+
+/* --- Dynamic Background Element (لتوهج النيون الإضافي) --- */
+/* هذا العنصر موجود بالفعل في HTML، والآن نستخدمه كطبقة متوهجة */
+.background-animated {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%; 
+    z-index: -1;
+    /* طبقة شفافة تتوهج لإضافة عمق ضبابي نيوني */
+    background: radial-gradient(circle at center, rgba(148, 0, 255, 0.1), rgba(0, 0, 0, 0.4));
+    animation: pulseGlow 15s ease-in-out infinite alternate;
+}
+
+@keyframes pulseGlow {
+    0% { opacity: 0.8; transform: scale(1); }
+    100% { opacity: 1; transform: scale(1.05); }
+}
+
+
+/*
+========================================
+2. LAYOUT & UI COMPONENTS
+========================================
+*/
+
+/* --- Global Screen Styles --- */
+.screen {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 100vh; 
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    /* تصبح أكثر شفافية لرؤية الخلفية المتحركة */
+    background-color: rgba(0, 0, 0, 0.5); 
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.screen.active {
+    display: flex;
+    opacity: 1;
+    position: relative; 
+}
+
+/* --- Typography and Utility --- */
+.logo-text {
+    font-family: var(--font-main);
+    color: var(--primary-neon);
+    text-shadow: 0 0 15px rgba(148, 0, 255, 0.7);
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+}
+.text-neon-purple { color: var(--primary-neon); }
+.text-neon-cyan { color: var(--secondary-neon); }
+.hidden { display: none !important; }
+.nav-link { 
+    color: var(--text-subtle); 
+    margin-left: 20px; 
+    text-decoration: none; 
+    font-family: var(--font-main); 
+    transition: color 0.3s; 
+}
+.nav-link:hover { color: var(--secondary-neon); }
+
+/* --- Buttons (CTA) --- */
+.cta-button {
+    padding: 12px 30px;
+    border: 2px solid var(--secondary-neon);
+    background: none;
+    color: var(--text-light);
+    font-family: var(--font-main);
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    margin: 10px;
+    text-transform: uppercase;
+}
+.cta-button:hover {
+    background-color: var(--secondary-neon);
+    color: var(--bg-dark);
+    box-shadow: 0 0 20px var(--secondary-neon);
+}
+
+/*
+========================================
+3. SCREEN 5: STUDY RESOURCE STYLES
+========================================
+*/
+#screen-5 { justify-content: flex-start; padding-top: 50px; padding-bottom: 50px; }
+#screen-5 .resource-container { width: 100%; max-width: 1000px; margin-top: 30px; }
+.resource-page-slide { display: none; }
+.resource-page-slide.active { display: block; }
+.accordion-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.accordion-item { border: 1px solid rgba(148, 0, 255, 0.3); margin-bottom: 15px; border-radius: 5px; overflow: hidden; background-color: rgba(0, 0, 0, 0.8); }
+.accordion-question { 
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 15px 20px; background-color: rgba(26, 26, 26, 0.8); cursor: pointer; 
+    font-size: 1.1em; font-weight: 700; color: var(--secondary-neon); transition: background-color 0.2s; 
+}
+.accordion-answer { 
+    max-height: 0; 
+    overflow: hidden; 
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out; 
+    padding: 0 20px; 
+    color: var(--text-subtle); 
+}
+.accordion-item.open .accordion-answer { max-height: 500px; padding: 15px 20px 20px 20px; }
+
+.resource-nav-footer { width: 100%; display: flex; justify-content: flex-end; margin-top: 30px; }
+.resource-nav-footer .nav-button { border-color: var(--primary-neon); background-color: rgba(148, 0, 255, 0.1); color: var(--primary-neon); }
+.resource-nav-footer .nav-button:hover { background-color: var(--primary-neon); color: var(--bg-dark); }
+
+/*
+========================================
+4. SCREEN 6: PATH SELECTION STYLES
+========================================
+*/
+#screen-6 .path-container { display: flex; gap: 30px; flex-wrap: wrap; justify-content: center; margin-top: 40px; }
+.path-card { 
+    width: 300px; padding: 25px; background-color: rgba(0, 0, 0, 0.8); 
+    border: 1px solid var(--primary-neon); border-radius: 10px; 
+    box-shadow: 0 0 15px rgba(148, 0, 255, 0.4); cursor: pointer; 
+    transition: transform 0.3s, box-shadow 0.3s; text-align: center; 
+}
+.path-card:hover { transform: translateY(-5px); box-shadow: 0 5px 25px var(--secondary-neon); }
+.path-card h3 { font-family: var(--font-main); color: var(--secondary-neon); font-size: 1.8em; margin-top: 0; }
+.path-card p { font-size: 0.9em; color: var(--text-subtle); }
+.path-card .select-btn { background-color: var(--primary-neon); color: var(--bg-dark); border: none; margin-top: 15px; font-weight: 700; }
